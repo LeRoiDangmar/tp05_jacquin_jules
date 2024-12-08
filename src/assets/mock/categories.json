@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "libelle": "Informatique",
+        "description": "Produits liés aux ordinateurs, composants et équipements informatiques tels que les ordinateurs portables, de bureau et les cartes graphiques."
+    },
+    {
+        "id": 2,
+        "libelle": "Périphériques",
+        "description": "Appareils externes connectés à un ordinateur, comme les claviers, souris, webcams et autres dispositifs d'entrée/sortie."
+    },
+    {
+        "id": 3,
+        "libelle": "Stockage",
+        "description": "Dispositifs pour stocker des données, y compris les disques durs externes, clés USB et boîtiers pour disques durs."
+    },
+    {
+        "id": 4,
+        "libelle": "Bureau",
+        "description": "Équipements et accessoires destinés à l'environnement de travail, tels que les imprimantes, lampes de bureau et autres fournitures."
+    },
+    {
+        "id": 5,
+        "libelle": "Audio",
+        "description": "Produits liés au son, comprenant les casques audio, enceintes, microphones et cartes son."
+    },
+    {
+        "id": 6,
+        "libelle": "Réseau",
+        "description": "Appareils pour la connectivité réseau, comme les routeurs, répéteurs Wi-Fi et autres équipements réseau."
+    },
+    {
+        "id": 7,
+        "libelle": "Accessoires",
+        "description": "Divers accessoires pour appareils électroniques, y compris les chargeurs, hubs USB, coques pour smartphones et supports."
+    },
+    {
+        "id": 8,
+        "libelle": "Création",
+        "description": "Outils et équipements pour la création numérique, tels que les tablettes graphiques et logiciels de design."
+    },
+    {
+        "id": 9,
+        "libelle": "Jeux vidéo",
+        "description": "Produits dédiés au gaming, y compris les manettes de jeu, casques VR et accessoires pour joueurs."
+    },
+    {
+        "id": 10,
+        "libelle": "Sécurité",
+        "description": "Articles destinés à la protection des appareils électroniques, comme les antivols pour ordinateurs et filtres de confidentialité."
+    }
+]
