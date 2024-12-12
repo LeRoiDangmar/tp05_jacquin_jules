@@ -11,6 +11,8 @@ import { Subscription } from 'rxjs';
 })
 export class CategoriesComponent {
 
+  link: string = "categorie";
+
   constructor(private fetcherService: FetcherService){}
   private subscription: Subscription = new Subscription();
 

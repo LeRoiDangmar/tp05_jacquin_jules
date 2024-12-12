@@ -1,21 +1,9 @@
-.featured-articles-container {
-    padding: 1rem;
-    background: #f9f9f9;
-}
-
-.featured-articles {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem; /* spacing between cards */
-    justify-content: center;
-    align-items: stretch;
-}
-
 .article-card {
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
     width: 280px;
+    height: 320px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);

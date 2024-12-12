@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu/menu.component';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { SearchbarComponent } from './menu/searchbar/searchbar.component';
 import { CategoriesComponent } from './menu/categories/categories.component';
 import { CardsComponent } from './menu/cards/cards.component';
@@ -15,18 +15,20 @@ const routes: Routes = [
     MenuComponent,
     SearchbarComponent,
     CategoriesComponent,
-    CardsComponent
+    CardsComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    RouterOutlet
   ],
   exports: [
     MenuComponent,
     RouterModule,
     SearchbarComponent,
     CategoriesComponent,
-    CardsComponent
+    CardsComponent,
+    RouterOutlet
   ]
 })
 export class NavigationModule { }

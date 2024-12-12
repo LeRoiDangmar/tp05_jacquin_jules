@@ -41,7 +41,7 @@ export class FetcherService {
   }
 
   // renvoie les articles pour une categorie donnée
-  public fetchArticleByCategorie(cat: number): Observable<ArticlePreview[]> {
+  public fetchArticleByCategorie(cat: string): Observable<ArticlePreview[]> {
     return this.http.get<ArticlePreview[]>(environment.backendClientProduits).pipe(
       map(items => items.filter(item => item.id_categorie == cat))
     )
@@ -51,6 +51,19 @@ export class FetcherService {
   public fetchCategories(): Observable<Categorie[]> {
     return this.http.get<Categorie[]>(environment.backendClientCategories).pipe(
       map(items => items.filter(item => items))
+    )
+  }
+
+  public fetchOneCategorie(id: string): Observable<Categorie> {
+    return this.http.get<Categorie[]>(environment.backendClientCategories).pipe(
+      map(items => {
+        const item = items.find(item => item.id === id);
+        if (item) {
+          return item;
+        } else {
+          throw new Error(`Categorie with id ${id} not found`);
+        }
+      })
     )
   }
 
