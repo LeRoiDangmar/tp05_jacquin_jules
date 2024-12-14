@@ -67,4 +67,11 @@ export class FetcherService {
     )
   }
 
+
+  public fetchArticleByQuery(query: string): Observable<ArticlePreview[]> {
+    return this.http.get<ArticlePreview[]>(environment.backendClientProduits).pipe(
+      map(items => items.filter(item => item.nom.toLowerCase().includes(query.toLowerCase())))
+    )
+  }
+
 }
