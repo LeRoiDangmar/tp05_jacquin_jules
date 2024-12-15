@@ -14,7 +14,6 @@ import { Categorie } from '../../../shared/models/categorie.model';
 export class CategorieComponent {
 
   categorie: string | null = null;
-  infoCategorie: Categorie = {id: 'null', libelle: 'null', description: 'null'};
 
 
   constructor(private fetcherService: FetcherService, private route: ActivatedRoute){}
@@ -28,7 +27,6 @@ export class CategorieComponent {
       if (newCategorie !== this.categorie) {
         this.categorie = newCategorie;
         this.FetchArticles();
-        this.FetchCategorie();
 
       }
     });
@@ -40,22 +38,11 @@ export class CategorieComponent {
     this.subscription.unsubscribe();
   }
 
-  FetchCategorie(){
-    const fetchSubscription = this.fetcherService.fetchOneCategorie(this.categorie || 'erreur').subscribe({
-      next: (data) => {
-        this.infoCategorie = data;
-      },
-      error: (error) => {
-        console.error('Error fetching categorie:', error);
-      }
-    });
-    this.subscription.add(fetchSubscription);
-  }
-
   FetchArticles(){
     const fetchSubscription = this.fetcherService.fetchArticleByCategorie(this.categorie || 'erreur').subscribe({
       next: (data) => {
         this.articles = data;
+        console.log(this.articles)
       },
       error: (error) => {
         console.error('Error fetching articles:', error);

@@ -1,5 +1,5 @@
 export interface ArticlePreview{
-    id: number;
+    id: string;
     nom: string;
     prix: number;
     note: number;

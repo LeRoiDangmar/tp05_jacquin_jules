@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-searchbar',
@@ -7,14 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './searchbar.component.css'
 })
 export class SearchbarComponent {
+  constructor(private router: Router) {}
 
   inputValue: string = "";
   croix: boolean = false;
+  link: string = "search"
 
-  onInputChange(event: Event): void {
-    this.inputValue = (event.target as HTMLInputElement).value;
+  onInputChange(): void {
     console.log('Input value:', this.inputValue);
     this.checkInputValue(this.inputValue)
+    this.router.navigate([this.link, this.inputValue]);
   }
 
   checkInputValue(inputValue: string){
@@ -24,5 +27,11 @@ export class SearchbarComponent {
       this.croix = false;
     }
   }
+
+  emptySearch(){
+    this.inputValue = "";
+    this.onInputChange();
+  }
+
 
 }

@@ -1,6 +1,9 @@
 .featured-articles-container {
     padding: 1rem;
-    background: #f9f9f9;
+    background: #f9f9f9;}
+
+.featured-articles-container h2{
+    text-align: center;
 }
 
 .featured-articles {

@@ -1,7 +1,6 @@
-<div class="article-card">
+<div class="article-card" [routerLink]="[link, article.id]">
     <div class="article-image">
-        <!-- Placeholder image or dynamically fetched if available -->
-        <img src="{{article.images[0]}}" alt="{{ article.nom }}" />
+        <img [src]="article.images[0]" [alt]="article.nom" />
     </div>
     <div class="article-content">
         <h3 class="article-title">{{ article.nom }}</h3>
@@ -9,6 +8,8 @@
         <p class="article-rating">Note: {{ article.note }} / 5</p>
     </div>
     <div class="article-actions">
-        <button class="btn btn-outline-secondary">Ajouter au panier</button>
+        <button class="btn btn-outline-secondary" (click)="$event.stopPropagation()">
+            Ajouter au panier
+        </button>
     </div>
 </div>

@@ -13,24 +13,26 @@ export class FetcherService {
 
   constructor(private http: HttpClient) { }
 
-  // Cette fonction renvoie toute les preview de produit
-  public fetchArticlePreview(ids: number[]): Observable<ArticlePreview[]> {
-      return this.http.get<ArticlePreview[]>(environment.backendClientProduits).pipe(
-        map(items => items.filter(item => ids.includes(item.id)))
-    );
-  }
-  // renvoie les articles en avant
   public fetchFeaturedArticles(): Observable<ArticlePreview[]> {
-    return this.http.get<ArticlePreview[]>(environment.backendClientProduits).pipe(
-      map(items => items.filter(item=> item.en_avant == true))
+    return this.http.get<any[]>(environment.backendClientProduits).pipe(
+      map(items => items.filter(item => item.en_avant === true)),
+      map(items => items.map(item => ({
+        id: String(item.id),
+        nom: item.nom,
+        prix: item.prix,
+        note: item.note,
+        id_categorie: item.id_categorie,
+        en_avant: item.en_avant,
+        images: item.images || []
+      } as ArticlePreview)))
     );
   }
   
   // Cette fonction renvoie toutes les infos d'un article
-  public fetchArticleFull(id: number): Observable<ArticleFull> {
+  public fetchArticleFull(id: string): Observable<ArticleFull> {
     return this.http.get<ArticleFull[]>(environment.backendClientProduits).pipe(
       map(items => {
-        const item = items.find(item => item.id === id);
+        const item = items.find(item => item.id == id);
         if (item) {
           return item;
         } else {
@@ -43,8 +45,17 @@ export class FetcherService {
   // renvoie les articles pour une categorie donnée
   public fetchArticleByCategorie(cat: string): Observable<ArticlePreview[]> {
     return this.http.get<ArticlePreview[]>(environment.backendClientProduits).pipe(
-      map(items => items.filter(item => item.id_categorie == cat))
-    )
+      map(items => items.filter(item => item.id_categorie == cat)),
+      map(items => items.map(item => ({
+        id: String(item.id),
+        nom: item.nom,
+        prix: item.prix,
+        note: item.note,
+        id_categorie: item.id_categorie,
+        en_avant: item.en_avant,
+        images: item.images || []
+      } as ArticlePreview)))
+    );
   }
 
   // renvoie les catégories
@@ -70,8 +81,17 @@ export class FetcherService {
 
   public fetchArticleByQuery(query: string): Observable<ArticlePreview[]> {
     return this.http.get<ArticlePreview[]>(environment.backendClientProduits).pipe(
-      map(items => items.filter(item => item.nom.toLowerCase().includes(query.toLowerCase())))
-    )
+      map(items => items.filter(item => item.nom.toLowerCase().includes(query.toLowerCase()))),
+      map(items => items.map(item => ({
+        id: String(item.id),
+        nom: item.nom,
+        prix: item.prix,
+        note: item.note,
+        id_categorie: item.id_categorie,
+        en_avant: item.en_avant,
+        images: item.images || []
+      } as ArticlePreview)))
+    );
   }
 
 }

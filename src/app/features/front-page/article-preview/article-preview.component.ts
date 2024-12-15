@@ -10,5 +10,11 @@ import { ArticlePreview } from '../../../shared/models/articlePreview.model';
 export class ArticlePreviewComponent {
 
   @Input() article!: ArticlePreview;
-  @Input() categorie!: string;
+  link: string = "/article";
+
+  ngOnInit(){
+    console.log(this.link)
+    console.log(this.article.id)
+
+  }
 }

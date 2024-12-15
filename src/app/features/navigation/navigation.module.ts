@@ -5,6 +5,7 @@ import { RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { SearchbarComponent } from './menu/searchbar/searchbar.component';
 import { CategoriesComponent } from './menu/categories/categories.component';
 import { CardsComponent } from './menu/cards/cards.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: MenuComponent }
@@ -20,7 +21,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    RouterOutlet
+    RouterOutlet,
+    FormsModule
   ],
   exports: [
     MenuComponent,
@@ -28,7 +30,8 @@ const routes: Routes = [
     SearchbarComponent,
     CategoriesComponent,
     CardsComponent,
-    RouterOutlet
+    RouterOutlet,
+    FormsModule
   ]
 })
 export class NavigationModule { }

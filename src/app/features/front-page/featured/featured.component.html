@@ -1,19 +1,8 @@
 <div class="featured-articles-container">
+
+    <h2>Voici les articles à la une</h2>
+
     <div class="featured-articles">
-        <div class="article-card" *ngFor="let article of featuredArticles">
-            <div class="article-image">
-                <!-- Placeholder image or dynamically fetched if available -->
-                <img src="{{article.images[0]}}" alt="{{ article.nom }}" />
-            </div>
-            <div class="article-content">
-                <h3 class="article-title">{{ article.nom }}</h3>
-                <p class="article-price">Prix: {{ article.prix | currency:'EUR' }}</p>
-                <p class="article-category">Categorie: {{ article.id_categorie }}</p>
-                <p class="article-rating">Note: {{ article.note }} / 5</p>
-            </div>
-            <div class="article-actions">
-                <button class="btn btn-outline-secondary">Ajouter au panier</button>
-            </div>
-        </div>
+        <app-article-preview *ngFor="let article of featuredArticles" [article]="article"></app-article-preview>
     </div>
 </div>

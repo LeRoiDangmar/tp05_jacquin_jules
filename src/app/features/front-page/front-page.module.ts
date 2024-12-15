@@ -5,18 +5,21 @@ import { FeaturedComponent } from './featured/featured.component';
 import { CategorieComponent } from './categorie/categorie.component';
 import { ArticlePreviewComponent } from './article-preview/article-preview.component';
 import { SearchComponent } from './search/search.component';
+import { ArticleComponent } from './article/article.component';
 
 const routes: Routes = [
   { path: '', component: FeaturedComponent },
   { path: 'categorie/:id', component: CategorieComponent},
-  { path: 'search/:query', component: SearchComponent}
+  { path: 'search/:query', component: SearchComponent},
+  { path: 'article/:id', component: ArticleComponent}
 ];
 
 @NgModule({
   declarations: [
     ArticlePreviewComponent,
     CategorieComponent,
-    SearchComponent
+    SearchComponent,
+    FeaturedComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +27,7 @@ const routes: Routes = [
   ],
   exports: [
     RouterModule,
-    CommonModule
+    CommonModule,
   ]
 })
 export class FrontPageModule { }

@@ -2,14 +2,10 @@ import { Component } from '@angular/core';
 import { FetcherService } from '../../../shared/services/fetcher.service';
 import { Subscription } from 'rxjs';
 import { ArticlePreview } from '../../../shared/models/articlePreview.model';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-featured',
-  standalone: true,
-  imports: [
-    CommonModule,
-  ],
+  standalone: false,
   templateUrl: './featured.component.html',
   styleUrl: './featured.component.css'
 })
