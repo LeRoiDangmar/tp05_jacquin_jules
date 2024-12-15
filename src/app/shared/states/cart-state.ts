@@ -16,47 +16,37 @@ import { ArticlePreview } from '../models/articlePreview.model';
   },
 })
 @Injectable()
-export class ContactState {
+export class CartState {
   @Selector()
-  static getNbContacts(state: ContactStateModel) {
-    return state.contacts.length;
+  static getNbArticles(state: CartStateModel) {
+    return state.articles.length;
   }
   @Selector()
-  static getNbContactsFavoris(fav: boolean) {
-    return createSelector([ContactState], (state: ContactStateModel) => {
-      return state.contacts.filter((c) => c.favoris == fav).length;
-    });
-  }
-  @Selector()
-  static getListeContacts(state: ContactStateModel) {
-    return state.contacts;
+  static getListeArticles(state: CartStateModel) {
+    console.log(state.articles);
+    return state.articles;
   }
 
-  @Selector()
-  static getFavorisContacts(state: ContactStateModel) {
-    return state.contacts.filter((x) => x.favoris);
-  }
-
-  @Action(AddContact)
+  @Action(AddArticle)
   add(
-    { getState, patchState }: StateContext<ContactStateModel>,
-    { payload }: AddContact
+    { getState, patchState }: StateContext<CartStateModel>,
+    { payload }: AddArticle
   ) {
     const state = getState();
     patchState({
-      contacts: [...state.contacts, payload],
+      articles: [...state.articles, payload],
     });
   }
 
-  @Action(DelContact)
+  @Action(DelArticle)
   del(
-    { getState, patchState }: StateContext<ContactStateModel>,
-    { payload }: DelContact
+    { getState, patchState }: StateContext<CartStateModel>,
+    { payload }: DelArticle
   ) {
     const state = getState();
     patchState({
-      contacts: state.contacts.filter(
-        (x) => !(payload.nom == x.nom && payload.prenom == x.prenom)
+      articles: state.articles.filter(
+        (x) => !(payload.nom == x.nom && payload.id == x.id)
       ),
     });
   }

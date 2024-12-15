@@ -1,0 +1,4 @@
+<p>PANIER</p>
+<div *ngFor="let c of liste$ | async">
+  {{ c.nom }} <button (click)="delContact(c)">Sup</button>
+</div>

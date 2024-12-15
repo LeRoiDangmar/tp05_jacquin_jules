@@ -30,8 +30,6 @@ export class FeaturedComponent {
     const fetchSubscription = this.fetcherService.fetchFeaturedArticles().subscribe({
       next: (data) => {
         this.featuredArticles = data;
-        console.log("bonjour")
-        console.log(this.featuredArticles)
       },
       error: (error) => {
         console.error('Error fetching categories:', error);

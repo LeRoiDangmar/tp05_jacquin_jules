@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { CardsService } from '../../services/cards.service';
 
 @Component({
-  selector: 'app-cards-form',
-  templateUrl: './cards-form.component.html',
-  styleUrls: ['./cards-form.component.css']
+    selector: 'app-cards-form',
+    templateUrl: './cards-form.component.html',
+    styleUrls: ['./cards-form.component.css'],
+    standalone: false
 })
 export class CardsFormComponent implements OnInit {
   carteForm: FormGroup;

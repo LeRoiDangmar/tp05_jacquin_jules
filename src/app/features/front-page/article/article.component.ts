@@ -3,14 +3,12 @@ import { FetcherService } from '../../../shared/services/fetcher.service';
 import { Subscription } from 'rxjs';
 import { ArticleFull } from '../../../shared/models/articleFull.model';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-article',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './article.component.html',
-  styleUrl: './article.component.css'
+    standalone: false,
+    selector: 'app-article',
+    templateUrl: './article.component.html',
+    styleUrl: './article.component.css'
 })
 export class ArticleComponent {
   constructor(private fetcherService: FetcherService, private route: ActivatedRoute){}
@@ -45,7 +43,6 @@ export class ArticleComponent {
     const fetchSubscription = this.fetcherService.fetchArticleFull(this.article || "").subscribe({
       next: (data) => {
         this.articlefull = data;
-        console.log(this.articlefull)
       },
       error: (error) => {
         console.error('Error fetching articles:', error);

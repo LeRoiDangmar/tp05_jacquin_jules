@@ -6,6 +6,7 @@ import { SearchbarComponent } from './menu/searchbar/searchbar.component';
 import { CategoriesComponent } from './menu/categories/categories.component';
 import { CardsComponent } from './menu/cards/cards.component';
 import { FormsModule } from '@angular/forms';
+import { CartComponent } from './menu/cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: MenuComponent }
@@ -17,6 +18,7 @@ const routes: Routes = [
     SearchbarComponent,
     CategoriesComponent,
     CardsComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,

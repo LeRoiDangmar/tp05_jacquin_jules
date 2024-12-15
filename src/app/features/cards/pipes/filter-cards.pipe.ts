@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Card } from '../../../shared/models/card.model';
 
 @Pipe({
-  name: 'filterCards'
+    name: 'filterCards',
+    standalone: false
 })
 export class FilterCardsPipe implements PipeTransform {
 

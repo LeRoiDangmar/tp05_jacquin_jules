@@ -15,15 +15,16 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+  ],
   declarations: [
     ArticlePreviewComponent,
     CategorieComponent,
     SearchComponent,
-    FeaturedComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
+    FeaturedComponent,
+    ArticleComponent
   ],
   exports: [
     RouterModule,

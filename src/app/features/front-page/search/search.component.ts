@@ -20,13 +20,11 @@ export class SearchComponent {
 
   ngOnInit() {
     const routeSubscription = this.route.paramMap.subscribe((params: ParamMap) => {
-      console.log(this.query)
       const newQuery = params.get('query');
       if (newQuery !== this.query && newQuery != null) {
         this.query = newQuery;
         this.FetchArticles();
       }
-      console.log("QUERY : ",  this.query)
     });
 
     this.subscription.add(routeSubscription);
@@ -40,7 +38,6 @@ export class SearchComponent {
     const fetchSubscription = this.fetcherService.fetchArticleByQuery(this.query || "").subscribe({
       next: (data) => {
         this.articles = data;
-        console.log(this.articles)
       },
       error: (error) => {
         console.error('Error fetching articles:', error);

@@ -8,7 +8,7 @@
         <p class="article-rating">Note: {{ article.note }} / 5</p>
     </div>
     <div class="article-actions">
-        <button class="btn btn-outline-secondary" (click)="$event.stopPropagation()">
+        <button class="btn btn-outline-secondary" (click)="$event.stopPropagation(); addArticle()">
             Ajouter au panier
         </button>
     </div>

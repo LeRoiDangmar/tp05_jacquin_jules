@@ -13,13 +13,12 @@ export const routes: Routes = [
       {
         path: 'cards',
         loadChildren: () => import('./features/cards/cards.module').then(m => m.CardsModule)
+      },
+      {
+        path: 'cart',
+        loadChildren: () => import('./features/cart/cart.module').then(m => m.CartModule)
       }
     ]
-  },
-  {
-    path: 'cart',
-    loadChildren: () => import('./features/cart/cart.module').then(m => m.CartModule)
-
   },
 
   {

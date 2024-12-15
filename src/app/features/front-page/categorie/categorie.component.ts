@@ -42,7 +42,6 @@ export class CategorieComponent {
     const fetchSubscription = this.fetcherService.fetchArticleByCategorie(this.categorie || 'erreur').subscribe({
       next: (data) => {
         this.articles = data;
-        console.log(this.articles)
       },
       error: (error) => {
         console.error('Error fetching articles:', error);

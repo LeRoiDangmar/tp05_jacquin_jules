@@ -4,9 +4,10 @@ import { Card } from '../../../../shared/models/card.model';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-cards-list',
-  templateUrl: './cards-list.component.html',
-  styleUrls: ['./cards-list.component.css']
+    selector: 'app-cards-list',
+    templateUrl: './cards-list.component.html',
+    styleUrls: ['./cards-list.component.css'],
+    standalone: false
 })
 export class CardsListComponent implements OnInit {
   cards$: Observable<Card[]>;

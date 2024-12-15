@@ -1,0 +1,7 @@
+<div class="container">
+    <button [routerLink]="['/cart']" routerLinkActive="router-link-active"  class="cart">Accéder au panier</button>
+    <div class="nb">
+        NB ARTICLES : {{ nb$ | async }}
+    </div>
+</div>
+

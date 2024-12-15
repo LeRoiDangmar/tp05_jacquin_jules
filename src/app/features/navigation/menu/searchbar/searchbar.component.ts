@@ -15,7 +15,6 @@ export class SearchbarComponent {
   link: string = "search"
 
   onInputChange(): void {
-    console.log('Input value:', this.inputValue);
     this.checkInputValue(this.inputValue)
     this.router.navigate([this.link, this.inputValue]);
   }

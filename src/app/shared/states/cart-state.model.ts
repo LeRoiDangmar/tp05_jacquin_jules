@@ -1,6 +1,6 @@
 import { ArticlePreview } from "../models/articlePreview.model";
 
 export class CartStateModel {
-    article: ArticlePreview[] = [];
+    articles: ArticlePreview[] = [];
     //quantity: number;
   }

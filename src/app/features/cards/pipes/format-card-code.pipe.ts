@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'formatCardCode'
+    name: 'formatCardCode',
+    standalone: false
 })
 export class FormatCardCodePipe implements PipeTransform {
 
