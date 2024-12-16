@@ -5,9 +5,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { inject } from '@angular/core';
 import { ArticlePreview } from '../../../shared/models/articlePreview.model';
-import { DelArticle } from '../../../shared/actions/cart-action';
+import { AddArticle, DelArticle } from '../../../shared/actions/cart-action';
 import { CartState } from '../../../shared/states/cart-state';
 import { Observable } from 'rxjs';
+import { CartItem } from '../../../shared/states/cart-state.model';
 
 @Component({
   selector: 'app-cart-page',
@@ -19,12 +20,18 @@ import { Observable } from 'rxjs';
 export class CartPageComponent {
   constructor(private store: Store) {}
 
-  liste$: Observable<ArticlePreview[]> = inject(Store).select(CartState.getListeArticles);
+  liste$: Observable<CartItem[]> = inject(Store).select(CartState.getListeArticles);
+  prix$: Observable<number> = inject(Store).select(CartState.getPriceArticles);
+
   ngOnInit() {
   }
 
-  delContact(c: ArticlePreview): void {
+  delArticle(c: ArticlePreview): void {
     this.store.dispatch(new DelArticle(c));
+  }
+
+  addArticle(c: ArticlePreview){
+    this.store.dispatch(new AddArticle(c));
   }
 
   liste(){
